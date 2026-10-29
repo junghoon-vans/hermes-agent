@@ -1,0 +1,26 @@
+# DRAFT: personal-fork preparation only; not ready for upstream admission.
+# Rule 11 file-sourced MCP credentials and external OMP authentication need
+# an approved Hermes credential route; rule 9 public integration seams remain open.
+name: omp-acp-provider
+title: Hermes OMP ACP
+repo: https://github.com/junghoon-vans/hermes-omp-acp
+sha: d0972579366e71e0eb395d656507135a76e31ed8
+description: Use Oh My Pi as a Hermes model backend over native ACP stdio.
+maintainer: junghoon-vans
+tier: community
+category: models
+requires_hermes: ">=0.21.4"
+version: "0.2.3"
+docs_url: https://github.com/junghoon-vans/hermes-omp-acp/blob/d0972579366e71e0eb395d656507135a76e31ed8/README.md
+readme: true
+platforms: []
+known_issues:
+  - Requires a separately installed OMP 15.7.6+ executable and configured model; this plugin does not install OMP.
+  - Native ACP permission requests are cancelled, not presented as Hermes approval prompts. OMP operations not requesting permission follow OMP's own policy.
+  - Global OMP MCP configuration is forwarded by default; review its commands, environment values, and headers before enabling.
+  - "Draft only: catalog rule 11 credential routing and rule 9 public-surface eligibility remain unresolved; validator success is not admission approval."
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
