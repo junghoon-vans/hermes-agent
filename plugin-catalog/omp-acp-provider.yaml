@@ -1,0 +1,23 @@
+name: omp-acp-provider
+title: Hermes OMP ACP
+repo: https://github.com/junghoon-vans/hermes-omp-acp
+sha: b66c4d5c63964b29f4cb5b5e63169f9c47250666
+description: Use Oh My Pi as a Hermes model backend over native ACP stdio.
+maintainer: junghoon-vans
+tier: community
+category: models
+requires_hermes: ">=0.21.4"
+version: "0.2.3"
+docs_url: https://github.com/junghoon-vans/hermes-omp-acp/blob/b66c4d5c63964b29f4cb5b5e63169f9c47250666/README.md
+readme: true
+platforms: []
+known_issues:
+  - Requires separately installed OMP 15.7.6+ and configured model authentication; OMP owns inference credentials and network calls, not Hermes.
+  - Native ACP permission requests are cancelled, not shown as Hermes approval prompts. Operations that do not request permission follow OMP's own policy, including file and shell tools.
+  - "MCP forwarding is enabled by default: reads ~/.omp/agent/mcp.json (or PI_CODING_AGENT_DIR/mcp.json) and sends enabled server commands, arguments, env values and HTTP/SSE headers to OMP. These may contain secrets; disable with mcp_enabled: false in plugin settings."
+  - Uses Hermes bridge, safety and subprocess internals; compatibility depends on the Hermes version and agent-client-protocol >=0.9.0,<0.10.0. Streaming is buffered, and each completion starts a new ACP session.
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
